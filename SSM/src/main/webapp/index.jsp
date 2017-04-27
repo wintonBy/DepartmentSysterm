@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body>
 <h2>Hello World!</h2>
-
-	<input type="button" value="登录" onclick="window.location.href = 'login.jsp'"/>
+	<input type="button" value="登录" onclick="window.location.href = 'user/loginPage.do'"/>
 </body>
 </html>

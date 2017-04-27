@@ -4,14 +4,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
-</head>
+<meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>欢迎登录</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap-4.0.0/css/bootstrap.min.css">
 <body>
-<form action="user/login.do">
-用户名：<input type="text" id="username" name="username"/>
-密码：<input type="password" id="password" name="password"/>
-	<input type="submit" value="登录"/>
-</form>
+<div class="container-fluid">
+	<h1 class="text-center">互动电视技术部</h1>
+</div>
 
+<div class="container-fluid">
+	<form role="form" class="form-horizontal">
+		<div class="form-group">
+			<input type="text" class="form-control"/>
+		</div>
+		<div class="form-group">
+			<input type="password" class="form-control"/>
+		</div>
+		<div class="form-group">
+			<input type="button" class="btn" style="width: 100%"/>
+		</div>
+	</form>
+</div>
+
+	
 </body>
 </html>

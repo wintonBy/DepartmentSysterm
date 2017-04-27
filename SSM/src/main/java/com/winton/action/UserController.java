@@ -32,4 +32,10 @@ public class UserController {
 		return result.toJSONString();
 	}
 	
+	@RequestMapping("/loginPage")
+	public String loginPage(){
+		System.out.println("收到");
+		return "/login";
+	}
+	
 }
