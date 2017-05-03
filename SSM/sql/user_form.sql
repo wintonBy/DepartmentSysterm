@@ -17,6 +17,6 @@ CREATE TABLE `userInfo` (
   
   `department_id_` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `name` (`name`)
  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
