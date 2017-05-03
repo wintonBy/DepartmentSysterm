@@ -8,6 +8,5 @@ CREATE TABLE `departmentInfo` (
   `description` longtext,
   `icon` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
- 
+  UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
