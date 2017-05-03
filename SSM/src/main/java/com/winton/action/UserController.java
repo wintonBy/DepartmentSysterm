@@ -20,15 +20,12 @@ public class UserController {
 	public String login(String username,String password) {
 		JSONObject result = new JSONObject();
 		int iResult = userService.checkUser(username, password);
-		
 		if(iResult == 0){
-			result.put("result", "false");
+			result.put("result", false);
 			result.put("errorMsg", "用户名或密码错误");
-			
 		}else{
-			return "/home";
+			result.put("result", true);
 		}
-		
 		return result.toJSONString();
 	}
 	
