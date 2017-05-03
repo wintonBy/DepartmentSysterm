@@ -25,6 +25,7 @@ body {
 }
 
 </style>
+</head>
 <body>
 <div class="container-fluid" style="margin-top: 160px">
 	<h3  class="text-center" style="color:#6f6f6f " href="../index.jsp" >互动电视技术部</h3>
@@ -39,7 +40,7 @@ body {
 			<input type="password" class="form-control"/>
 		</div>
 		<div class="form-group">
-			<input type="button" class="btn" style="width: 100%" value="登录"/>
+			<input type="button" class="btn" style="width: 100%" value="登录" onclick="login()"/>
 		</div>
 	</form>
 </div>
