@@ -1,0 +1,43 @@
+.formError {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    z-index: 0;
+    line-height:25px;
+    height:25px;
+}
+
+.formError .formErrorContent {
+    position: relative;
+    z-index: -1;
+}
+
+.formError .formErrorContent em{font-style:normal;}
+.formError .formErrorContent span.error{ border-radius:8px; background:#ff8e11; font-family:"微软雅黑"; margin:0px 0px 0px -6px; display:inline-block; width:16px; line-height:16px; height:16px; text-align:center; color:#fff;}
+.formError .formErrorContent span.error_text{ min-width:120px; display:inline-block; border-radius:3px; color:#ff8e11; font-family:"微软雅黑"; padding:0px 10px;}
+.formError .formErrorContent span.error_text2{min-width:120px; position:relative; margin-left:10px; text-align:center; border:1px solid #ff8e11;border-radius:3px; color:#ff8e11; font-family:"微软雅黑";display:inline-block;}
+.formError .formErrorContent span.error_text2 i{ position:absolute; z-index:10; width:8px; height:12px; left:-7px; top:6px; background:url("../assets/css/images/left_triangle.png") left center no-repeat #fff;}
+.formError .formErrorArrow {
+ 	margin:-19px 0 0 -6px;
+    position: relative;
+    width: 15px;
+    z-index: 6;
+}
+
+.formError .formErrorArrow div {
+    background: none repeat scroll 0 0 #fd4d3e;
+    border-left: 2px solid #DDDDDD;
+    border-right: 2px solid #DDDDDD;
+   /* box-shadow: 0 2px 11px #444444;*/
+    display: block;
+    font-size: 0;
+    width: 1px;
+    line-height: 0;
+    margin: 0 auto;
+    float: left;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {
+    background: #FFE1E1;
+    border: 1px solid #F9DD34;
+    color: #363636;
+}

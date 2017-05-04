@@ -11,6 +11,13 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/common/js/md5.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
 
+<!--validate css  -->
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/validator/css/jquery.validate.css" />
+<!-- validate scripts -->
+<script src="<%=request.getContextPath()%>/resources/validator/js/jquery.validate.js"></script>
+<script src="<%=request.getContextPath()%>/resources/validator/js/jquery.metadata.js"></script>
+<script src="<%=request.getContextPath()%>/resources/validator/js/jquery.validate.expand.js"></script>
+
 <style type="text/css">
 body {
 	background-color: #f6f6f6;
@@ -35,15 +42,15 @@ body {
 </div>
 
 <div class="container-fluid" >
-	<form  class="form-horizontal" role="form">
+	<form  class="form-horizontal" role="form" id="loginForm" name="loginForm">
 		<div class="form-group">
-			<input type="text" class="form-control" id="username"/>
+			<input type="text" class="form-control" id="username" name="username" placeholder="用户名"/>
 		</div>
 		<div class="form-group">
-			<input type="password" class="form-control" id="password"/>
+			<input type="password" class="form-control" id="password" name="password" placeholder="密码"/>
 		</div>
 		<div class="form-group">
-			<input type="button" class="btn" style="width: 100%" value="登录" onclick="login()"/>
+			<input type="submit" class="btn" style="width: 100%" value="登录" onclick="login()"/>
 		</div>
 	</form>
 </div>
@@ -60,25 +67,69 @@ body {
 	function login(){
 		var loading = layer.load(1, {
 			  shade: [0.1,'#fff'] //0.1透明度的白色背景
-			});
-		var username = $("#username").val();
-		var password = $("#password").val();
-		var md5Password = hex_md5(password);
-		$.post('user/login.do',{'username':username,'password':md5Password},function(data){
+		});
+		
+		/* if(!validateLoginForm().form()){
 			layer.close(loading);
-			if(data.result){
-				//登录成功
-				location.href = ("user/goHome.do");
-				//$.post("user/goHome.do");
-			}else{
-				//登录失败
-				layer.msg(data.errorMsg);
+			return;
+		} */
+		
+		$("#loginForm").validate({
+			rules:{
+				username:{
+					"required":true
+				},
+				password:{
+					"required":true
+				}
+			},
+			messages:{
+				username:{
+					"required":""
+				},
+				password:{
+					"required":""
+				}
+			},
+			submitHandler:function(form){
+				var username = $("#username").val();
+				var password = $("#password").val();
+				var md5Password = hex_md5(password);
+				$.post('user/login.do',{'username':username,'password':md5Password},function(data){
+					if(data.result){
+						//登录成功
+						location.href = ("user/goHome.do");
+					}else{
+						//登录失败
+						layer.msg(data.errorMsg);
+					}
+				},'json');
 			}
-		},'json');
+		})
+		
+		layer.close(loading);
+	}
+	
+	//校验登录form
+	function validateLoginForm(){
+		return $("#loginForm").validate({
+			rules:{
+				username:{
+					"required":true
+				},
+				password:{
+					"required":true
+				}
+			},
+			messages:{
+				username:{
+					"required":""
+				},
+				password:{
+					"required":""
+				}
+			}
+		})
 	}
 </script>
 </html>
-
-
-
-
