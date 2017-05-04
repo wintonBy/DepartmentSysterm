@@ -7,6 +7,36 @@ public class User extends BaseEntity{
 	String password;
 	
 	String name;
+	
+	String mobile;
+	
+	String creatTime;
+	
+	String mail;
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getCreatTime() {
+		return creatTime;
+	}
+
+	public void setCreatTime(String creatTime) {
+		this.creatTime = creatTime;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
 
 	public String getUsername() {
 		return username;
