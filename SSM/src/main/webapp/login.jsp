@@ -7,8 +7,8 @@
 <meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>欢迎登录</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap-4.0.0/css/bootstrap.min.css">
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/md5.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jQuery/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/common/js/md5.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/layer/layer.js"></script>
 
 <style type="text/css">
@@ -68,6 +68,8 @@ body {
 			layer.close(loading);
 			if(data.result){
 				//登录成功
+				location.href = ("user/goHome.do");
+				//$.post("user/goHome.do");
 			}else{
 				//登录失败
 				layer.msg(data.errorMsg);
