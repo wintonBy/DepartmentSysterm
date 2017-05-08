@@ -2,6 +2,8 @@ package com.winton.entity;
 
 public class User extends BaseEntity{
 	
+	String userId;
+	
 	String username;
 	
 	String password;
@@ -60,6 +62,14 @@ public class User extends BaseEntity{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	
 	
