@@ -7,23 +7,201 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap-3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/Font-Awesome-3.2.1/css/font-awesome.min.css">
-<link rel="stylesheet"	href="<%=request.getContextPath()%>/resources/css/home.css">
 <title>管理平台</title>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jQuery/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/home.js" ></script>
+
+<style type="text/css">
+ /* Toggle Styles */
+ 
+ .nav-pills>li>a {
+    border-radius: 0;
+ }
+ #wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    overflow: hidden;
+ }
+ 
+ #wrapper.toggled {
+    padding-left: 250px;
+    overflow: hidden;
+ }
+ 
+ #sidebar-wrapper {
+    z-index: 1000;
+    position: absolute;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+ }
+ 
+ #wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+ }
+ 
+ #page-content-wrapper {
+    position: absolute;
+    padding: 15px;
+    width: 100%;
+    overflow-x: hidden;
+ }
+ 
+ .xyz {
+    min-width: 360px;
+ }
+ 
+ #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0px;
+ }
+ 
+ .fixed-brand {
+    width: auto;
+ }
+ /* Sidebar Styles */
+ 
+ .sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 2px;
+ }
+ 
+ .sidebar-nav li {
+    text-indent: 15px;
+    line-height: 40px;
+ }
+ 
+ .sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+ }
+ 
+ .sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-left: red 2px solid;
+ }
+ 
+ .sidebar-nav li a:active,
+ .sidebar-nav li a:focus {
+    text-decoration: none;
+ }
+ 
+ .sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+ }
+ 
+ .sidebar-nav > .sidebar-brand a {
+    color: #999999;
+ }
+ 
+ .sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+ }
+ 
+ .no-margin {
+    margin: 0;
+ }
+ 
+ @media(min-width:768px) {
+    #wrapper {
+       padding-left: 250px;
+    }
+    .fixed-brand {
+       width: 250px;
+    }
+    #wrapper.toggled {
+       padding-left: 0;
+    }
+    #sidebar-wrapper {
+       width: 250px;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+       width: 250px;
+    }
+    #wrapper.toggled-2 #sidebar-wrapper {
+       width: 50px;
+    }
+    #wrapper.toggled-2 #sidebar-wrapper:hover {
+       width: 250px;
+    }
+    #page-content-wrapper {
+       padding: 20px;
+       position: relative;
+       -webkit-transition: all 0.5s ease;
+       -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+       transition: all 0.5s ease;
+    }
+    #wrapper.toggled #page-content-wrapper {
+       position: relative;
+       margin-right: 0;
+       padding-left: 250px;
+    }
+    #wrapper.toggled-2 #page-content-wrapper {
+       position: relative;
+       margin-right: 0;
+       margin-left: -200px;
+       -webkit-transition: all 0.5s ease;
+       -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+       transition: all 0.5s ease;
+       width: auto;
+    }
+ }
+ .navbar-default{
+ 	background-color: #5cb85c;
+ 	border-color: #5cb85c;
+ 	color: #f6f6f6;
+ }
+ .navbar-header{
+ 	padding-left:10px;
+ 	padding-top:10px;
+ 	color: #f6f6f6;
+ }
+ .navbar-header a{
+ 	color: #f6f6f6;
+ 	font-size: 16px;
+ }
+ .navbar-header a:hover{
+ 	color: #f6f6f6;
+ 	text-decoration:none;
+ 	cursor: pointer;
+ }
+.navbar-default .navbar-toggle{
+	border-color: #5cb85c;
+	margin-right: 0px;
+}
+</style>
+
 </head>
 
+
 <body>
-	<nav class="navbar-default no-margin" style="background-color: #5cb85c;border-color:#5cb85c; color:#f6f6f6 " >
+	<nav class="navbar-default no-margin"  >
 		<div class="navbar-header fixed-brand" >
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" id="menu-toggle">
-				<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-			</button>
-				<div style="padding-left: 20px; padding-top: 10px;">
-					<span class="icon-home icon-2x"></span>
-				</div>
+			<a id="username"><i class="icon-home icon-2x"></i>用户名</a>
 		</div>
 		<!-- navbar-header-->
 		<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
@@ -31,11 +209,39 @@
 				<li class="active">
 					<button class="navbar-toggle collapse in" data-toggle="collapse"
 						id="menu-toggle-2">
-						<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+						<span class="icon-th icon-large" aria-hidden="true"></span>
+					</button>
+				</li>
+			</ul>
+			<!-- 右边功能按钮 -->
+			<ul class="nav navbar-toolbar">
+				<li class="active">
+					<button class="navbar-toggle collapse in" data-toggle="collapse"
+						>
+						<span class="icon-off" aria-hidden="true"> 退出</span>
+					</button>
+				</li>
+				<li class="active">
+					<button class="navbar-toggle collapse in" data-toggle="collapse"
+						>
+						<span class="icon-wrench" aria-hidden="true"> 修改密码</span>
+					</button>
+				</li>
+				<li class="active">
+					<button class="navbar-toggle collapse in" data-toggle="collapse"
+						>
+						<span class="icon-bell-alt" aria-hidden="true"> 消息</span>
+					</button>
+				</li>
+				<li class="active">
+					<button class="navbar-toggle collapse in" data-toggle="collapse"
+						>
+						<span class="icon-fullscreen" aria-hidden="true"> 全屏</span>
 					</button>
 				</li>
 			</ul>
 		</div>
+		
 	</nav>
 	<div id="wrapper">
 		<!-- Sidebar -->

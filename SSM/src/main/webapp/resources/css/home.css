@@ -109,10 +109,6 @@
  .no-margin {
     margin: 0;
  }
- .navbar-brand-logo{
- 	color: #f6f6f6;
- 	padding-left: 20px;
- }
  
  @media(min-width:768px) {
     #wrapper {
