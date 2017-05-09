@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>欢迎登录</title>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap-4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap-3.3.7/css/bootstrap.min.css">
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/jQuery/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/md5.js"></script>
