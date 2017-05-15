@@ -1,7 +1,7 @@
 create table if not exists menu(
   menuId int(11) NOT NULL auto_increment,
   deleted bit(1) NOT NULL DEFAULT 0,
-  createTime datetime DEFAULT CURRENT_TIMESTAMP comment '创建时间',
+  createTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment '创建时间',
   description varchar(255) DEFAULT NULL,
   iconCls varchar(255) NOT NULL,
   kind varchar(1) NOT NULL comment '0是一级菜单1是二级菜单',
