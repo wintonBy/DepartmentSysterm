@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ include file="../taglib.jsp"%>	
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -247,7 +246,21 @@
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-				
+				<c:forEach items="${menus}" var="menu">
+					<li>
+						<a href="#">${menu.name}</a>
+						<c:if test="${menu.childMenuList.size() > 0}">
+							<ul class="nav-pills nav-stacked" style="list-style-type: none;">
+								<c:forEach var="childMenu" items="${menu.childMenuList}">
+									<li>
+										<a href="#">${childMenu.name}</a>
+									</li>
+								</c:forEach>
+							</ul>
+						</c:if>
+						
+					</li>
+				</c:forEach>
 			</ul>
 		</div>
 		<!-- /#sidebar-wrapper -->

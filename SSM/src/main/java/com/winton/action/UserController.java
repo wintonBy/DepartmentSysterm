@@ -1,5 +1,7 @@
 package com.winton.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
+import com.winton.entity.Menu;
 import com.winton.entity.User;
 import com.winton.service.UserService;
 
@@ -40,7 +43,11 @@ public class UserController {
 	public String goHome(ModelMap map, HttpServletRequest request){
 		
 		User user = (User) request.getSession().getAttribute("user");
+		List<Menu> myMeuns = userService.getMeunListByUserId(user.getUserId());
+		
 		map.put("user", user);
+		map.put("menus", myMeuns);
+		
 		return "/home";
 	}
 	

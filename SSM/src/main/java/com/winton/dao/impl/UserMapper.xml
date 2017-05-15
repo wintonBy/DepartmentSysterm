@@ -15,6 +15,25 @@
 		username = #{username} and `password` = #{password}
 </select>
 
+<select id="getParentMeunListByUserId" parameterType="java.lang.String" resultType="com.winton.entity.Menu">
+	SELECT
+		*
+	FROM
+		menu
+	WHERE
+		parentId = -1
+</select>
+
+<select id="getChildMeunListByUserId" parameterType="java.lang.String" resultType="com.winton.entity.Menu">
+	SELECT
+		*
+	FROM
+		menu
+	WHERE
+		parentId = #{menuId}
+</select>
+
+
 
 
 </mapper>
