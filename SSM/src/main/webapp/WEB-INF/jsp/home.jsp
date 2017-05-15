@@ -248,7 +248,12 @@
 			<ul class="sidebar-nav nav-pills nav-stacked" id="menu">
 				<c:forEach items="${menus}" var="menu">
 					<li>
-						<a href="#">${menu.name}</a>
+						<a href="#">
+							<span class="fa-stack fa-lg pull-left">
+								<i class="fa fa-dashboard fa-stack-1x "></i>
+							</span>
+							${menu.name}
+						</a>
 						<c:if test="${menu.childMenuList.size() > 0}">
 							<ul class="nav-pills nav-stacked" style="list-style-type: none;">
 								<c:forEach var="childMenu" items="${menu.childMenuList}">
