@@ -258,7 +258,7 @@
 							<ul class="nav-pills nav-stacked" style="list-style-type: none;">
 								<c:forEach var="childMenu" items="${menu.childMenuList}">
 									<li>
-										<a href="javascript:addTab('${childMenu.nameCn}','${childMenu.location}')">${childMenu.nameCn}</a>
+										<a href="#" onclick="addTab('${childMenu.nameCn}','${childMenu.location}','${childMenu.menuId}')">${childMenu.nameCn}</a>
 									</li>
 								</c:forEach>
 							</ul>
@@ -286,8 +286,21 @@
 	</div>
 </body>
 <script type="text/javascript">
-function addTab(title,href,icon){
+function addTab(title,href,icon,menuId){
 	
+	//先拼接ul
+	var oneTab = '<li class="active">'+
+					'<a href="#"' + menuId + ' data-toggle="tab">'+
+						title+
+					'</a>'+
+				'</li>';
+	$("#myTab").append(oneTab);
+	
+	//再拼接该li对应的div
+	var oneContent = '<div id='+ menuId +'>'+
+						'<iframe scrolling="no" frameborder="0"  src="'+href+'" style="width:100%;height:100%;"></iframe>'+
+					'</div>';
+	$("#myTabContent").append(oneContent);
 }
 </script>
 </html>
