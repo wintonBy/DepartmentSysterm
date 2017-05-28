@@ -252,13 +252,13 @@
 							<span class="fa-stack fa-lg pull-left">
 								<i class="fa fa-dashboard fa-stack-1x "></i>
 							</span>
-							${menu.name}
+							${menu.nameCn}
 						</a>
 						<c:if test="${menu.childMenuList.size() > 0}">
 							<ul class="nav-pills nav-stacked" style="list-style-type: none;">
 								<c:forEach var="childMenu" items="${menu.childMenuList}">
 									<li>
-										<a href="#">${childMenu.name}</a>
+										<a href="javascript:addTab('${childMenu.nameCn}','${childMenu.location}')">${childMenu.nameCn}</a>
 									</li>
 								</c:forEach>
 							</ul>
@@ -270,22 +270,24 @@
 		</div>
 		<!-- /#sidebar-wrapper -->
 		<!-- Page Content -->
-		<div id="page-content-wrapper">
-			<div class="container-fluid xyz">
-				<div class="row">
-					<div class="col-lg-12">
-						<h1>
-							欢迎登陆
-						</h1>
-					</div>
-				</div>
+		<ul id="myTab" class="nav nav-tabs">
+			<li class="active">
+				<a href="#home" data-toggle="tab">
+					 首页
+				</a>
+			</li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div id="home">
+				<!-- <iframe scrolling="no" frameborder="0"  src="../userManagement/show.do" style="width:100%;height:100%;"></iframe> -->
 			</div>
 		</div>
 		<!-- /#page-content-wrapper -->
 	</div>
-	
-
 </body>
-
-
+<script type="text/javascript">
+function addTab(title,href,icon){
+	
+}
+</script>
 </html>
