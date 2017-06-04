@@ -12,6 +12,13 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/home.js" ></script>
 
 <style type="text/css">
+
+.tab-content{
+	background-color: #F1F1F1;
+}
+
+
+
  /* Toggle Styles */
  
  .nav-pills>li>a {
@@ -64,6 +71,19 @@
  #wrapper.toggled #page-content-wrapper {
     position: relative;
     margin-right: 0px;
+ }
+ 
+ /*header title style*/
+ .menu-tab{
+ 	width: 7.5em;
+ }
+ .nav-tabs>li>a{
+ 	margin-right: 0px !important;
+ 	border-radius: 0 0 0 0 !important;
+ 	text-align: center;
+ }
+ .nav-tabs>li.active>a,.nav-tabs>li.active>a:HOVER{
+ 	background-color: #F1F1F1;
  }
  
  .fixed-brand {
@@ -271,16 +291,14 @@
 		<!-- /#sidebar-wrapper -->
 		<!-- Page Content -->
 		<ul id="myTab" class="nav nav-tabs">
-			<li class="active">
-				<a href="#home" data-toggle="tab">
+			<li class="active menu-tab">
+				<a href="#home"  >
 					 首页
 				</a>
 			</li>
 		</ul>
+		
 		<div id="myTabContent" class="tab-content">
-			<div id="home">
-				<!-- <iframe scrolling="no" frameborder="0"  src="../userManagement/show.do" style="width:100%;height:100%;"></iframe> -->
-			</div>
 		</div>
 		<!-- /#page-content-wrapper -->
 	</div>
@@ -289,7 +307,7 @@
 function addTab(title,href,icon,menuId){
 	
 	//先拼接ul
-	var oneTab = '<li class="active">'+
+	var oneTab = '<li class="active menu-tab">'+
 					'<a href="#"' + menuId + ' data-toggle="tab">'+
 						title+
 					'</a>'+
